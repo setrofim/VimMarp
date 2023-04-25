@@ -14,7 +14,7 @@ if !exists(":VimMarp")
     if s:toggle
       if &filetype == 'markdown'
         echo 'Rendering and opening...'
-        AsyncRun marp "%" --pdf && open "%:r".pdf && marp "%" --pdf --watch
+        AsyncRun marp --html --allow-local-files "%" --pdf && open "%:r".pdf && marp --allow-local-files "%" --pdf --html --watch
         let s:toggle = 0
       else
         echo 'Filetype is not markdown'
